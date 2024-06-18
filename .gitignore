@@ -2,3 +2,4 @@ db.sqlite3
 base/__pycache__
 base/migrations
 studybud/__pycache__
+.env
