@@ -5,14 +5,20 @@ from django.http import HttpResponse
 
 rooms = [
   {'id':1 , 'name':'Lets Learn Python'},
-  {'id':1 , 'name':'Design with'},
-  {'id':1 , 'name':'Front end Python'},
+  {'id':2 , 'name':'Design with'},
+  {'id':3 , 'name':'Front end Python'},
 ]
 
 
 def home(request):
   context = {'rooms':rooms}
   return render(request, 'base/home.html' , context)
+  
 
-def room(request):
-  return render(request,'room.html')
+def room(request , pk):
+  room = None
+  for i in rooms:
+    if i['id'] == int(pk):
+      room = i
+  context = {'room': room}
+  return render(request,'base/room.html' , context)
